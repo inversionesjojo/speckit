@@ -34,3 +34,14 @@ Puedes cambiar la integración ejecutando:
 ```bash
 make run INTEGRATION=copilot PROJECT_NAME=mi-proyecto
 ```
+
+## CI/CD: Publicación en Docker Hub
+Este proyecto cuenta con un flujo de trabajo de GitHub Actions (`.github/workflows/docker-publish.yml`) que construye y publica la imagen automáticamente en Docker Hub.
+
+### Configuración requerida
+Para que el pipeline funcione correctamente, debes configurar los siguientes **Secrets de repositorio** en GitHub (`Settings` -> `Secrets and variables` -> `Actions`):
+
+- `DOCKERHUB_USERNAME`: Tu nombre de usuario en Docker Hub.
+- `DOCKERHUB_TOKEN`: Un token de acceso personal (PAT) generado en Docker Hub con permisos de lectura y escritura.
+
+El flujo de trabajo se dispara automáticamente al hacer push a la rama `main` o al crear un tag (ej: `v1.0.0`), construyendo la imagen y subiéndola a `<tu-usuario>/speckit`.
