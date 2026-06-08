@@ -44,3 +44,5 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: ${{ secrets.DOCKERHUB_USERNAME }}/speckit
           readme-filepath: ./README.md
+          short-description: "NO OFICIAL Docker image for Specify CLI by @inversionesjojo"
+
